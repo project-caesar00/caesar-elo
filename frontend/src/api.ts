@@ -7,7 +7,8 @@ import type {
     ScrapeConfig,
     ScrapeJob,
     ComparisonPair,
-    LeaderboardItem
+    LeaderboardItem,
+    AggregationResponse
 } from './types';
 
 // Use Vite env variable for production, fallback to localhost for dev
@@ -129,5 +130,19 @@ export const api = {
     async getStats(): Promise<Stats> {
         const res = await fetch(`${API_BASE}/stats`);
         return handleResponse<Stats>(res);
+    },
+
+    // --- Aggregation ---
+
+    async aggregatePlaces(query: string, minRating?: number): Promise<AggregationResponse> {
+        const res = await fetch(`${API_BASE}/aggregate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query,
+                min_rating: minRating,
+            }),
+        });
+        return handleResponse<AggregationResponse>(res);
     },
 };

@@ -9,6 +9,7 @@ import os
 
 from database import engine, Base
 from api.routes import router as api_router
+from api.aggregation import router as aggregation_router
 from api.auth import router as auth_router
 
 # Create database tables
@@ -37,6 +38,7 @@ app.mount("/screenshots", StaticFiles(directory=SCREENSHOTS_DIR), name="screensh
 
 # Include API routes
 app.include_router(api_router)
+app.include_router(aggregation_router)
 app.include_router(auth_router)
 
 

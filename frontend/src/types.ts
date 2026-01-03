@@ -108,3 +108,22 @@ export const GRADING_FIELDS = [
 ] as const;
 
 export type GradingFieldKey = typeof GRADING_FIELDS[number]['key'];
+
+// --- Aggregation Types ---
+
+export interface PlaceResult {
+    rank: number;
+    name: string;
+    rating_count: number;
+    rating_score: number | null;
+    website_url: string | null;
+    google_place_id: string;
+}
+
+export interface AggregationResponse {
+    results: PlaceResult[];
+    query: string;
+    total_count: number;
+    search_query_id: number;
+}
+

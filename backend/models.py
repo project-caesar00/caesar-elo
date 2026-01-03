@@ -123,3 +123,37 @@ class ScrapeJob(Base):
     
     created_at = Column(DateTime, default=datetime.utcnow)
     completed_at = Column(DateTime, nullable=True)
+
+
+class SearchQuery(Base):
+    """Eine Suchanfrage für Places (z.B. 'Sushi Berlin')."""
+    __tablename__ = "search_queries"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    query = Column(String(255), nullable=False)
+    min_rating = Column(Float, nullable=True)
+    results_count = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    places = relationship("Place", back_populates="search_query")
+
+
+class Place(Base):
+    """Ein Google Places Ergebnis aus einer Suche."""
+    __tablename__ = "places"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    search_query_id = Column(Integer, ForeignKey("search_queries.id"), nullable=False)
+    
+    google_place_id = Column(String(255), nullable=False)
+    name = Column(String(255), nullable=False)
+    rating_count = Column(Integer, default=0)
+    rating_score = Column(Float, nullable=True)
+    website_url = Column(String(2048), nullable=True)
+    rank = Column(Integer, nullable=False)  # Rang in dieser Suche
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    search_query = relationship("SearchQuery", back_populates="places")
