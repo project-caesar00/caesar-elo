@@ -9,6 +9,7 @@ import os
 
 from database import engine, Base
 from api.routes import router as api_router
+from api.auth import router as auth_router
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -23,7 +24,7 @@ app = FastAPI(
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -36,6 +37,7 @@ app.mount("/screenshots", StaticFiles(directory=SCREENSHOTS_DIR), name="screensh
 
 # Include API routes
 app.include_router(api_router)
+app.include_router(auth_router)
 
 
 @app.get("/")

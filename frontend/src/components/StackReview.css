@@ -1,0 +1,351 @@
+.stack-review {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.stack-review.loading,
+.stack-review.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.empty-state {
+    text-align: center;
+}
+
+.empty-state h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stats-summary {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    color: #888;
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    color: #a0a0a0;
+}
+
+.stat strong {
+    color: #fff;
+    margin-left: 0.25rem;
+}
+
+/* Main Container */
+.review-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 2rem;
+    min-height: 80vh;
+}
+
+/* Preview Section */
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.website-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.website-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.website-url {
+    color: #646cff;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+.business-type {
+    background: #333;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    width: fit-content;
+    color: #aaa;
+}
+
+.address {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.iframe-container {
+    flex: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #111;
+    min-height: 500px;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    min-height: 500px;
+}
+
+/* Grading Section */
+.grading-section {
+    background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+    max-height: 85vh;
+}
+
+.grading-section h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.error-message {
+    background: #ff4444;
+    color: white;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* Likert Fields */
+.likert-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.likert-field {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.likert-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.likert-header label {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.likert-description {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.likert-scale {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.likert-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    background: transparent;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.likert-btn:hover {
+    border-color: #646cff;
+    color: #646cff;
+}
+
+.likert-btn.active {
+    background: linear-gradient(135deg, #646cff 0%, #747bff 100%);
+    border-color: #646cff;
+    color: white;
+}
+
+.likert-label {
+    margin-left: 0.75rem;
+    font-size: 0.85rem;
+    color: #888;
+    min-width: 80px;
+}
+
+.note-input {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.85rem;
+}
+
+.note-input::placeholder {
+    color: #555;
+}
+
+.note-input:focus {
+    outline: none;
+    border-color: #646cff;
+}
+
+/* General Comment */
+.general-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.general-comment label {
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.general-comment textarea {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: #fff;
+    font-size: 0.9rem;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.general-comment textarea:focus {
+    outline: none;
+    border-color: #646cff;
+}
+
+/* Flag Buttons */
+.flag-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.flag-btn {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid #333;
+    background: transparent;
+    color: #888;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.flag-btn:hover {
+    border-color: #555;
+}
+
+.flag-btn.designvorlage.active {
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    border-color: #9333ea;
+    color: white;
+}
+
+.flag-btn.good-lead.active {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    border-color: #059669;
+    color: white;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+}
+
+.skip-btn {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid #444;
+    background: transparent;
+    color: #888;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.skip-btn:hover:not(:disabled) {
+    border-color: #666;
+    color: #aaa;
+}
+
+.submit-btn {
+    flex: 2;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #646cff 0%, #747bff 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(100, 108, 255, 0.3);
+}
+
+.submit-btn:disabled,
+.skip-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .review-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .grading-section {
+        max-height: none;
+    }
+}
