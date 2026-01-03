@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: caesar-elo-backend
+    restart: unless-stopped
+    ports:
+      - "8001:8000"  # Using 8001 to avoid conflict with main caesar on 8000
+    environment:
+      - DATABASE_URL=sqlite:///./data/caesar_elo.db
+      - GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - JWT_SECRET=${JWT_SECRET}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:3002}
+    volumes:
+      - ./data:/app/data  # Persist SQLite database
+      - ./screenshots:/app/screenshots
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_URL=${API_URL:-http://localhost:8001}
+    container_name: caesar-elo-frontend
+    restart: unless-stopped
+    ports:
+      - "3002:80"  # Using 3002 to avoid conflict with main caesar
+    depends_on:
+      - backend
+
+networks:
+  default:
+    name: caesar-elo-network

@@ -10,7 +10,8 @@ import type {
     LeaderboardItem
 } from './types';
 
-const API_BASE = 'http://localhost:8000/api';
+// Use Vite env variable for production, fallback to localhost for dev
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000') + '/api';
 
 async function handleResponse<T>(res: Response): Promise<T> {
     if (!res.ok) {
