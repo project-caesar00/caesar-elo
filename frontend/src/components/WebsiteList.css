@@ -1,0 +1,89 @@
+.website-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.website-list.loading,
+.website-list.empty,
+.website-list.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.empty-state {
+    text-align: center;
+    color: #888;
+}
+
+.website-list h2 {
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.website-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.website-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.website-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.website-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.flags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.flag {
+    font-size: 1.25rem;
+}
+
+.website-url {
+    color: #646cff;
+    font-size: 0.85rem;
+    word-break: break-all;
+    text-decoration: none;
+}
+
+.website-url:hover {
+    text-decoration: underline;
+}
+
+.business-type {
+    background: #333;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    width: fit-content;
+    color: #aaa;
+}
+
+.website-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #666;
+}
